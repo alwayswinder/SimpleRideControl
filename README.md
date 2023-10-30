@@ -1,2 +1,2 @@
 # SimpleRideControl
-简单的坐骑操控
+简单的骑乘3c和CustomCameraManager
