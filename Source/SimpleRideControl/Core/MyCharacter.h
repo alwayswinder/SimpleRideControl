@@ -27,9 +27,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	/*AbilitySystem*/
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 private:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
-	UAbilitySystemComponent* AbilitySystemComponent;
+	class UMyAbilitySystemComponent* AbilitySystemComponent;
 };

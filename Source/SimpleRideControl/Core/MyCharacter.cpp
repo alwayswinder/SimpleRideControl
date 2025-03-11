@@ -3,12 +3,17 @@
 
 #include "MyCharacter.h"
 
+#include "MyAbilitySystemComponent.h"
+
 // Sets default values
 AMyCharacter::AMyCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+
+	//AbilitySystem
+	AbilitySystemComponent = CreateDefaultSubobject<UMyAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 }
 
 // Called when the game starts or when spawned
@@ -36,4 +41,6 @@ UAbilitySystemComponent* AMyCharacter::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
 }
+
+
 
