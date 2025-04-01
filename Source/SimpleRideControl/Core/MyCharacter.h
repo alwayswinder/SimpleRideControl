@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
+#include "SimpleRideControl/Player/MyPlayerAttributeSet.h"
 #include "MyCharacter.generated.h"
 
 UCLASS()
@@ -30,7 +31,13 @@ public:
 	/*AbilitySystem*/
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-private:
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
 	class UMyAbilitySystemComponent* AbilitySystemComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
+	UMyPlayerAttributeSet* AttributeSet;
+
+	void InitializeAttributes();
+	
 };

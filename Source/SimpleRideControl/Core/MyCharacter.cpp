@@ -3,7 +3,7 @@
 
 #include "MyCharacter.h"
 
-#include "MyAbilitySystemComponent.h"
+#include "SimpleRideControl/GAS/MyAbilitySystemComponent.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -14,13 +14,18 @@ AMyCharacter::AMyCharacter()
 
 	//AbilitySystem
 	AbilitySystemComponent = CreateDefaultSubobject<UMyAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+	// AbilitySystemComponent->SetIsReplicated(true);
+	// AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+
+	AttributeSet = CreateDefaultSubobject<UMyPlayerAttributeSet>(TEXT("AttributeSet"));
 }
 
 // Called when the game starts or when spawned
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	InitializeAttributes();
 }
 
 // Called every frame
@@ -40,6 +45,15 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 UAbilitySystemComponent* AMyCharacter::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
+}
+
+void AMyCharacter::InitializeAttributes()
+{
+	if(AbilitySystemComponent && AttributeSet)
+	{
+		//AttributeSet->InitFromMetaDataTable();
+		AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	}
 }
 
 
