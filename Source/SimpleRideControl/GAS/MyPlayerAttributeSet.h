@@ -32,4 +32,6 @@ protected:
 
 	UFUNCTION()
 	virtual void OnRep_MaxtHealth(const FGameplayAttributeData& OldMaxHealth);
+	
+	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 };

@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
-#include "SimpleRideControl/Player/MyPlayerAttributeSet.h"
+#include "SimpleRideControl/GAS/MyPlayerAttributeSet.h"
 #include "MyCharacter.generated.h"
 
 UCLASS()
